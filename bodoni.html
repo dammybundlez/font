@@ -5,52 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FONTS - design</title>
 
-    <style>
+  <style>
+    body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+    }
 
-        body {
-            margin: 0;
+    header {
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-brand {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: crimson;
+    }
+
+    ul {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        overflow-x: auto;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    ul::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: crimson;
+        white-space: nowrap;
+        padding: 0.25rem 0.5rem;
+        transition: color 0.2s, background 0.2s;
+        border-radius: 5px;
+    }
+
+    a:hover {
+        background-color: crimson;
+        color: #fff;
+    }
+
+    /* Hamburger Button */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: crimson;
+        transition: all 0.3s;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+            display: none;
+            border-bottom: 1px solid #ddd;
         }
-        img {
+
+        ul.show {
+            display: flex;
+        }
+
+        a {
+            padding: 0.75rem 1rem;
             width: 100%;
         }
 
-        ul {
+        .hamburger {
             display: flex;
-            /* justify-content: space-between; */
-            gap: 1rem;
-            align-items: center;
         }
-
-        li {
-            list-style-type: none;
-        }
-
-        a{
-            text-decoration: none;
-            color: crimson;
-            font-family:  "Inter";
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Athelas</a></li>
-                <li><a href="avenir.html">Avenir</a></li>
-                <li><a href="baskerville.html">BaskerVille</a></li>
-                <li><a href="bodoni.html">Bodoni Moda</a></li>
-                <li><a href="didot.html">Didot</a></li>
-                <li><a href="garamond.html">EB Garamond</a></li>
-                <li><a href="famijen.html">Famijen</a></li>
-                <li><a href="lora.html">Lora</a></li>
-                <li><a href="moglan.html">Moglan</a></li>
-                <li><a href="rebond.html">Rebond Grotesque</a></li>
-                <li><a href="playfair.html">PlayFair Dsiplay</a></li>
-                <li><a href="romanesco.html">Romanesco</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <div class="nav-brand">Fonts</div>
+        <div class="hamburger" onclick="toggleMenu(this)">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul id="nav-menu">
+            <li><a href="index.html">Athelas</a></li>
+            <li><a href="avenir.html">Avenir</a></li>
+            <li><a href="baskerville.html">BaskerVille</a></li>
+            <li><a href="bodoni.html">Bodoni Moda</a></li>
+            <li><a href="didot.html">Didot</a></li>
+            <li><a href="garamond.html">EB Garamond</a></li>
+            <li><a href="famijen.html">Famijen</a></li>
+            <li><a href="lora.html">Lora</a></li>
+            <li><a href="moglan.html">Moglan</a></li>
+            <li><a href="rebond.html">Rebond Grotesque</a></li>
+            <li><a href="playfair.html">PlayFair Display</a></li>
+            <li><a href="romanesco.html">Romanesco</a></li>
+        </ul>
+    </nav>
+</header>
     <main>
         <div>
             <img src="Jovadi Website _ Bodoni Moda.png" alt="">
@@ -63,4 +150,13 @@
         </div>
     </main>
 </body>
+<script>
+    function toggleMenu(el) {
+        const menu = document.getElementById('nav-menu');
+        menu.classList.toggle('show');
+
+        // Animate hamburger
+        el.classList.toggle('open');
+    }
+</script>
 </html>
